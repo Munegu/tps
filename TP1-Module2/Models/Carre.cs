@@ -12,7 +12,7 @@ namespace TP1_Module2.Models
 
         public override double Aire => Longueur * Longueur;
 
-        public override double Perimetre => 2 * Longueur + 2 * Longueur;
+        public override double Perimetre =>  4 * Longueur;
 
         public override string ToString()
         {
