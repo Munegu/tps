@@ -26,6 +26,13 @@ namespace TP1_Module3
             Console.WriteLine("Auteur qui a écrit le plus de livres : ");
             Console.WriteLine($"{auteursMaxLivres.Prenom} {auteursMaxLivres.Nom}");
 
+            var livreParAuteur = ListeLivres.GroupBy(livres => livres.Auteur);
+            Console.WriteLine("Nombre moyen de pages par livre et par auteur : ");
+            foreach (var auteur in livreParAuteur)
+            {
+                Console.WriteLine($"{auteur.Key.Prenom} {auteur.Key.Nom} moyenne des pages = {auteur.Average(livres => livres.NbPages)}");
+            }
+
             Console.ReadLine();
         }
 
