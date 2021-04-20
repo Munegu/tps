@@ -41,6 +41,11 @@ namespace TP1_Module3
             Console.WriteLine("Argent gagné en moyenne par les auteurs : ");
             Console.WriteLine($"{argentAuteurMoyenne} euros");
 
+            // correction cours
+            var correctionArgentMoyenn = ListeAuteurs.Where(x => x.Factures.Count > 0).Average(x => x.Factures.Average(y => y.Montant));
+            Console.WriteLine("Correction argent gagné en moyenne par les auteurs");
+            Console.WriteLine($"{correctionArgentMoyenn} euros");
+
             var livresParAuteur = ListeLivres.GroupBy(livres => livres.Auteur);
             foreach (var livres in livresParAuteur)
             {
