@@ -16,11 +16,16 @@ namespace TP1_Module3
         {
             InitialiserDatas();
             Console.WriteLine("Prénoms auteurs dont noms commencent par G :");
-            var auteursG = ListeAuteurs.Where(auteur => auteur.Nom.StartsWith("G")).Select(auteur => auteur.Prenom);
+            var auteursG = ListeAuteurs.Where(auteurs => auteurs.Nom.StartsWith("G")).Select(auteurs => auteurs.Prenom);
             foreach (var prenom in auteursG)
             {
                 Console.WriteLine(prenom);
             }
+
+            var auteursMaxLivres = ListeLivres.GroupBy(livres => livres.Auteur).OrderByDescending(auteurs => auteurs.Count()).FirstOrDefault().Key;
+            Console.WriteLine("Auteur qui a écrit le plus de livres : ");
+            Console.WriteLine($"{auteursMaxLivres.Prenom} {auteursMaxLivres.Nom}");
+
             Console.ReadLine();
         }
 
