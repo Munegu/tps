@@ -37,6 +37,10 @@ namespace TP1_Module3
             Console.WriteLine("Livre avec le nombre max de pages : ");
             Console.WriteLine(livreMax.Titre);
 
+            var argentAuteurMoyenne = ListeAuteurs.Average(auteurs => auteurs.Factures.Sum(factures => factures.Montant));
+            Console.WriteLine("Argent gagné en moyenne par les auteurs : ");
+            Console.WriteLine($"{argentAuteurMoyenne} euros");
+
             Console.ReadLine();
         }
 
