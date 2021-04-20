@@ -41,6 +41,16 @@ namespace TP1_Module3
             Console.WriteLine("Argent gagné en moyenne par les auteurs : ");
             Console.WriteLine($"{argentAuteurMoyenne} euros");
 
+            var livresParAuteur = ListeLivres.GroupBy(livres => livres.Auteur);
+            foreach (var livres in livresParAuteur)
+            {
+                Console.WriteLine($"Auteur: {livres.Key.Prenom} {livres.Key.Nom}");
+                foreach (var livre in livres)
+                {
+                    Console.WriteLine(livre.Titre);
+                }
+            }
+
             Console.ReadLine();
         }
 
