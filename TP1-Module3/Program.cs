@@ -1,24 +1,29 @@
-﻿using BO;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TP1_Module3.BO;
 
 namespace TP1_Module3
 {
     class Program
     {
+        private static List<Auteur> ListeAuteurs = new List<Auteur>();
+        private static List<Livre> ListeLivres = new List<Livre>();
+
         public static void Main(string[] args)
         {
             InitialiserDatas();
-            Console.WriteLine(ListeAuteurs);
-            Console.WriteLine(ListeLivres);
+            Console.WriteLine("Prénoms auteurs dont noms commencent par G :");
+            var auteursG = ListeAuteurs.Where(auteur => auteur.Nom.StartsWith("G")).Select(auteur => auteur.Prenom);
+            foreach (var prenom in auteursG)
+            {
+                Console.WriteLine(prenom);
+            }
             Console.ReadLine();
         }
 
-        private static List<Auteur> ListeAuteurs = new List<Auteur>();
-        private static List<Livre> ListeLivres = new List<Livre>();
 
         private static void InitialiserDatas()
         {
