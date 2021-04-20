@@ -33,6 +33,10 @@ namespace TP1_Module3
                 Console.WriteLine($"{auteur.Key.Prenom} {auteur.Key.Nom} moyenne des pages = {auteur.Average(livres => livres.NbPages)}");
             }
 
+            var livreMax = ListeLivres.OrderByDescending(livres => livres.NbPages).First();
+            Console.WriteLine("Livre avec le nombre max de pages : ");
+            Console.WriteLine(livreMax.Titre);
+
             Console.ReadLine();
         }
 
