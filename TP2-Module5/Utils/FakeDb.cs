@@ -14,14 +14,10 @@ namespace TP2_Module5.Utils
 
         private FakeDb()
         {
-            this.InitialiserDatas();
         }
 
         public List<Pizza> Pizzas { get; } = new List<Pizza>();
 
-        private List<Pizza> InitialiserDatas()
-        {
-            return Pizzas;
-        }
+   
     }
 }
