@@ -31,7 +31,7 @@ namespace TP2_Module5.Controllers
 
         // POST: Pizza/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(FormCollection collection, Pizza pizza)
         {
             try
             {
