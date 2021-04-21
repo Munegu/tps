@@ -8,7 +8,7 @@ namespace TP1_Module5.Controllers
 {
     public class ChatController : Controller
     {
-        public List<Models.Chat> chats = Models.Chat.GetMeuteDeChats();
+        private static List<Models.Chat> chats = Models.Chat.GetMeuteDeChats();
 
         // GET: Chat
         public ActionResult Index()
