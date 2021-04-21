@@ -23,27 +23,13 @@ namespace TP1_Module5.Controllers
             return View(chat);
         }
 
-      
-        // POST: Chat/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+     
 
         // GET: Chat/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            Models.Chat chat = chats.Where(c => c.Id == id).FirstOrDefault();
+            return View(chat);
         }
 
         // POST: Chat/Delete/5
@@ -52,8 +38,8 @@ namespace TP1_Module5.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
-
+                Models.Chat chat = chats.Where(c => c.Id == id).FirstOrDefault();
+                chats.Remove(chat);
                 return RedirectToAction("Index");
             }
             catch
