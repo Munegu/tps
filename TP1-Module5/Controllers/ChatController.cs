@@ -8,17 +8,19 @@ namespace TP1_Module5.Controllers
 {
     public class ChatController : Controller
     {
+        public List<Models.Chat> chats = Models.Chat.GetMeuteDeChats();
+
         // GET: Chat
         public ActionResult Index()
         {
-            List<Models.Chat> chats = Models.Chat.GetMeuteDeChats();
             return View(chats);
         }
 
         // GET: Chat/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            Models.Chat chat = chats.Where(c => c.Id == id).FirstOrDefault();
+            return View(chat);
         }
 
       
