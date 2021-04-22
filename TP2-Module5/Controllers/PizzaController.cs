@@ -1,4 +1,4 @@
-﻿using Models;
+﻿using BO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,7 +35,7 @@ namespace TP2_Module5.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
+                pizzas.Add(pizza);
 
                 return RedirectToAction("Index");
             }

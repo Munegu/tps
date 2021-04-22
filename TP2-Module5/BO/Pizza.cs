@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
-namespace Models
+namespace BO
 {
     public class Pizza
     {
@@ -11,8 +12,9 @@ namespace Models
         public string Nom { get; set; }
         public Pate Pate { get; set; }
         public List<Ingredient> Ingredients { get; set; } = new List<Ingredient>();
+        public List<Pate> Pates { get; set; } = PatesDisponibles;
 
-        public static List<Ingredient> IngredientsDisponibles => new List<Ingredient>
+        public static List<Ingredient> IngredientsDisponibles  => new List<Ingredient>
         {
             new Ingredient{Id=1,Nom="Mozzarella"},
             new Ingredient{Id=2,Nom="Jambon"},
@@ -24,7 +26,7 @@ namespace Models
             new Ingredient{Id=8,Nom="Poulet"}
         };
 
-        public static List<Pate> PatesDisponibles => new List<Pate>
+        public static List<Pate> PatesDisponibles  => new List<Pate>
         {
             new Pate{ Id=1,Nom="Pate fine, base crême"},
             new Pate{ Id=2,Nom="Pate fine, base tomate"},
