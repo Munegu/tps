@@ -12,6 +12,7 @@ namespace TP2_Module5.Controllers
     public class PizzaController : Controller
     {
         private readonly static List<Pizza> pizzas = FakeDb.Instance.Pizzas;
+
         // GET: Pizza
         public ActionResult Index()
         {
@@ -19,9 +20,9 @@ namespace TP2_Module5.Controllers
         }
 
         // GET: Pizza/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(string id)
         {
-            return View();
+            return View(FakeDb.Instance.Pizzas.FirstOrDefault(pizza => pizza.Id == id));
         }
 
         // GET: Pizza/Create
@@ -40,17 +41,26 @@ namespace TP2_Module5.Controllers
 
         // POST: Pizza/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection, Pizza pizza)
+        public ActionResult Create(PizzaViewModel pizzaViewModel)
         {
             try
             {
-                pizzas.Add(pizza);
+                pizzaViewModel.pizza.Id = Guid.NewGuid().ToString();
+                // pizzaViewModel.pizza.Pate = Pizza.PatesDisponibles.SingleOrDefault(pate => pate.Id == pizzaViewModel.pizza.Pate.Id);
+               //  pizzaViewModel.pizza.Ingredients = Pizza.IngredientsDisponibles.Where(ingredient => pizzaViewModel.IdIngredients.Contains(ingredient.Id)).ToList();
+
+                FakeDb.Instance.Pizzas.Add(pizzaViewModel.pizza);
 
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                pizzaViewModel.Ingredients = Pizza.IngredientsDisponibles.Select(ingredient => new SelectListItem()
+                { Text = ingredient.Nom, Value = ingredient.Id.ToString() }).ToList();
+                pizzaViewModel.Pates = Pizza.PatesDisponibles.Select(
+                pates => new SelectListItem { Text = pates.Nom, Value = pates.Id.ToString() }
+                ).ToList();
+                return View(pizzaViewModel);
             }
         }
 
