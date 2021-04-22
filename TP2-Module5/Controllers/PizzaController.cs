@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TP2_Module5.Models;
 using TP2_Module5.Utils;
 
 namespace TP2_Module5.Controllers
@@ -26,7 +27,15 @@ namespace TP2_Module5.Controllers
         // GET: Pizza/Create
         public ActionResult Create()
         {
-            return View();
+            PizzaViewModel pizzaViewModel = new PizzaViewModel();
+            pizzaViewModel.Pates = Pizza.PatesDisponibles.Select(
+                pates => new SelectListItem { Text = pates.Nom, Value = pates.Id.ToString()}
+                ).ToList();
+
+            pizzaViewModel.Ingredients = Pizza.IngredientsDisponibles.Select(
+                ingrédients => new SelectListItem { Text = ingrédients.Nom, Value = ingrédients.Id.ToString() }
+                ).ToList();
+            return View(pizzaViewModel);
         }
 
         // POST: Pizza/Create
