@@ -46,8 +46,14 @@ namespace TP2_Module5.Controllers
             try
             {
                 pizzaViewModel.pizza.Id = Guid.NewGuid().ToString();
-                // pizzaViewModel.pizza.Pate = Pizza.PatesDisponibles.SingleOrDefault(pate => pate.Id == pizzaViewModel.pizza.Pate.Id);
-               //  pizzaViewModel.pizza.Ingredients = Pizza.IngredientsDisponibles.Where(ingredient => pizzaViewModel.IdIngredients.Contains(ingredient.Id)).ToList();
+
+                pizzaViewModel.pizza.Pate = Pizza.PatesDisponibles.FirstOrDefault(pate => pate.Id == pizzaViewModel.IdPate);
+
+                foreach (var id in pizzaViewModel.IdIngredients)
+                {
+                    pizzaViewModel.pizza.Ingredients.Add(Pizza.IngredientsDisponibles.FirstOrDefault(ingredient => ingredient.Id == id));
+                }
+                
 
                 FakeDb.Instance.Pizzas.Add(pizzaViewModel.pizza);
 
@@ -55,11 +61,11 @@ namespace TP2_Module5.Controllers
             }
             catch
             {
-                pizzaViewModel.Ingredients = Pizza.IngredientsDisponibles.Select(ingredient => new SelectListItem()
-                { Text = ingredient.Nom, Value = ingredient.Id.ToString() }).ToList();
-                pizzaViewModel.Pates = Pizza.PatesDisponibles.Select(
-                pates => new SelectListItem { Text = pates.Nom, Value = pates.Id.ToString() }
-                ).ToList();
+               // pizzaViewModel.Ingredients = Pizza.IngredientsDisponibles.Select(ingredient => new SelectListItem()
+               // { Text = ingredient.Nom, Value = ingredient.Id.ToString() }).ToList();
+               // pizzaViewModel.Pates = Pizza.PatesDisponibles.Select(
+               // pates => new SelectListItem { Text = pates.Nom, Value = pates.Id.ToString() }
+               // ).ToList();
                 return View(pizzaViewModel);
             }
         }
