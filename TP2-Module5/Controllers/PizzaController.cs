@@ -61,11 +61,7 @@ namespace TP2_Module5.Controllers
             }
             catch
             {
-               // pizzaViewModel.Ingredients = Pizza.IngredientsDisponibles.Select(ingredient => new SelectListItem()
-               // { Text = ingredient.Nom, Value = ingredient.Id.ToString() }).ToList();
-               // pizzaViewModel.Pates = Pizza.PatesDisponibles.Select(
-               // pates => new SelectListItem { Text = pates.Nom, Value = pates.Id.ToString() }
-               // ).ToList();
+         
                 return View(pizzaViewModel);
             }
         }
@@ -93,24 +89,27 @@ namespace TP2_Module5.Controllers
         }
 
         // GET: Pizza/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(string id)
         {
-            return View();
+            Pizza pizza = FakeDb.Instance.Pizzas.SingleOrDefault(p => p.Id == id);
+            return View(pizza);
         }
 
         // POST: Pizza/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(string id, FormCollection collection)
         {
             try
             {
-                // TODO: Add delete logic here
+                Pizza pizza = FakeDb.Instance.Pizzas.SingleOrDefault(p => p.Id == id);
+                FakeDb.Instance.Pizzas.Remove(pizza);
 
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                Pizza pizza = FakeDb.Instance.Pizzas.SingleOrDefault(p => p.Id == id);
+                return View(pizza);
             }
         }
     }
