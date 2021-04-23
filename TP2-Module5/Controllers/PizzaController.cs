@@ -67,18 +67,44 @@ namespace TP2_Module5.Controllers
         }
 
         // GET: Pizza/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(string id)
         {
-            return View();
+            PizzaViewModel pizzaViewModel = new PizzaViewModel();
+
+            pizzaViewModel.pizza = FakeDb.Instance.Pizzas.SingleOrDefault(pizza => pizza.Id == id);
+
+            pizzaViewModel.Ingredients = Pizza.IngredientsDisponibles.Select(
+            ingrédients => new SelectListItem { Text = ingrédients.Nom, Value = ingrédients.Id.ToString() }
+            ).ToList();
+
+            pizzaViewModel.Pates = Pizza.PatesDisponibles.Select(
+               pates => new SelectListItem { Text = pates.Nom, Value = pates.Id.ToString() }
+               ).ToList();
+
+            if (pizzaViewModel.pizza.Ingredients != null && pizzaViewModel.pizza.Ingredients.Count > 0)
+            {
+                pizzaViewModel.IdIngredients = pizzaViewModel.pizza.Ingredients.Select(ingredient => ingredient.Id).ToList();
+            }
+
+
+            return View(pizzaViewModel);
         }
 
         // POST: Pizza/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(PizzaViewModel pizzaViewModel)
         {
             try
             {
-                // TODO: Add update logic here
+                Pizza pizzaUpdate = FakeDb.Instance.Pizzas.SingleOrDefault(pizza => pizza.Id == pizzaViewModel.pizza.Id);
+
+                pizzaUpdate.Pate = Pizza.PatesDisponibles.FirstOrDefault(pate => pate.Id == pizzaViewModel.IdPate);
+
+                pizzaUpdate.Ingredients = Pizza.IngredientsDisponibles.Where(ingredient => pizzaViewModel.IdIngredients.Contains(ingredient.Id)).ToList();
+
+                pizzaUpdate.Nom = pizzaViewModel.pizza.Nom;
+
+
 
                 return RedirectToAction("Index");
             }
