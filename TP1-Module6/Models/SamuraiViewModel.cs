@@ -11,5 +11,7 @@ namespace TP1_Module6.Models
         public Samourai Samurai { get; set; }
         public List<Arme> Armes { get; set; }
         public int? IdSelectedArme { get; set; }
+
+
     }
 }

@@ -141,6 +141,10 @@
     <Compile Include="Migrations\202104261351059_Initial.Designer.cs">
       <DependentUpon>202104261351059_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104271419298_ArtMartiaux.cs" />
+    <Compile Include="Migrations\202104271419298_ArtMartiaux.Designer.cs">
+      <DependentUpon>202104271419298_ArtMartiaux.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\SamuraiViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -213,6 +217,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202104261351059_Initial.resx">
       <DependentUpon>202104261351059_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104271419298_ArtMartiaux.resx">
+      <DependentUpon>202104271419298_ArtMartiaux.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
