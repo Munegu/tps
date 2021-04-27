@@ -127,6 +127,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="BO\Arme.cs" />
+    <Compile Include="BO\ArtMartial.cs" />
+    <Compile Include="BO\IdEntity.cs" />
     <Compile Include="BO\Samurai.cs" />
     <Compile Include="Controllers\ArmesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />

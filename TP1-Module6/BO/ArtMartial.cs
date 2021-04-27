@@ -5,10 +5,8 @@ using System.Web;
 
 namespace TP1_Module6.BO
 {
-    public class Samourai : IdEntity
+    public class ArtMartial : IdEntity
     {
-        public int Force { get; set; }
         public string Nom { get; set; }
-        public virtual Arme Arme { get; set; }
     }
 }

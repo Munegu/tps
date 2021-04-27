@@ -5,9 +5,8 @@ using System.Web;
 
 namespace TP1_Module6.BO
 {
-    public class Arme : IdEntity
+    public abstract class IdEntity
     {
-        public string Nom { get; set; }
-        public int Degats { get; set; }
+        public int Id { get; set; }
     }
 }
