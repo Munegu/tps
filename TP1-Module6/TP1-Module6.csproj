@@ -189,6 +189,8 @@
     <Content Include="Views\Armes\Details.cshtml" />
     <Content Include="Views\Armes\Edit.cshtml" />
     <Content Include="Views\Armes\Index.cshtml" />
+    <Content Include="Views\Samourais\_CreateEditSamourai.cshtml" />
+    <Content Include="Views\Samourais\_DetailDeleteSamourai.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -111,6 +111,14 @@ namespace TP1_Module6.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Arme arme = db.Armes.Find(id);
+
+            db.Samourais.Include(x => x.Arme).Where(x => x.Arme.Id == arme.Id)
+                .ToList().ForEach((x) =>
+                {
+                    x.Arme = null;
+                }
+                );
+
             db.Armes.Remove(arme);
             db.SaveChanges();
             return RedirectToAction("Index");
