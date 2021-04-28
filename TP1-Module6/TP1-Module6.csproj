@@ -131,19 +131,16 @@
     <Compile Include="BO\IdEntity.cs" />
     <Compile Include="BO\Samurai.cs" />
     <Compile Include="Controllers\ArmesController.cs" />
+    <Compile Include="Controllers\ArtMartialsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SamouraisController.cs" />
     <Compile Include="Data\TP1_Module6Context.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202104261351059_Initial.cs" />
-    <Compile Include="Migrations\202104261351059_Initial.Designer.cs">
-      <DependentUpon>202104261351059_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104271419298_ArtMartiaux.cs" />
-    <Compile Include="Migrations\202104271419298_ArtMartiaux.Designer.cs">
-      <DependentUpon>202104271419298_ArtMartiaux.cs</DependentUpon>
+    <Compile Include="Migrations\202104280921316_ArtMartials.cs" />
+    <Compile Include="Migrations\202104280921316_ArtMartials.Designer.cs">
+      <DependentUpon>202104280921316_ArtMartials.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\SamuraiViewModel.cs" />
@@ -197,6 +194,11 @@
     <Content Include="Views\Armes\Index.cshtml" />
     <Content Include="Views\Samourais\_CreateEditSamourai.cshtml" />
     <Content Include="Views\Samourais\_DetailDeleteSamourai.cshtml" />
+    <Content Include="Views\ArtMartials\Create.cshtml" />
+    <Content Include="Views\ArtMartials\Delete.cshtml" />
+    <Content Include="Views\ArtMartials\Details.cshtml" />
+    <Content Include="Views\ArtMartials\Edit.cshtml" />
+    <Content Include="Views\ArtMartials\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -215,11 +217,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202104261351059_Initial.resx">
-      <DependentUpon>202104261351059_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104271419298_ArtMartiaux.resx">
-      <DependentUpon>202104271419298_ArtMartiaux.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202104280921316_ArtMartials.resx">
+      <DependentUpon>202104280921316_ArtMartials.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

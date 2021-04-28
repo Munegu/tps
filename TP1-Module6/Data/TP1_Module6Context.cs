@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using TP1_Module6.BO;
 
 namespace TP1_Module6.Data
 {
@@ -22,5 +23,16 @@ namespace TP1_Module6.Data
         public System.Data.Entity.DbSet<TP1_Module6.BO.Samourai> Samourais { get; set; }
 
         public System.Data.Entity.DbSet<TP1_Module6.BO.Arme> Armes { get; set; }
+
+        public System.Data.Entity.DbSet<TP1_Module6.BO.ArtMartial> ArtMartials { get; set; }
+
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Samourai>().HasOptional(s => s.Arme);
+            modelBuilder.Entity<Samourai>().HasMany(x => x.ArtMartials).WithMany();
+            base.OnModelCreating(modelBuilder);
+        }
+
     }
 }

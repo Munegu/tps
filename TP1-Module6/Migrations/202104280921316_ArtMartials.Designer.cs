@@ -7,13 +7,13 @@ namespace TP1_Module6.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class ArtMartiaux : IMigrationMetadata
+    public sealed partial class ArtMartials : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ArtMartiaux));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ArtMartials));
         
         string IMigrationMetadata.Id
         {
-            get { return "202104271419298_ArtMartiaux"; }
+            get { return "202104280921316_ArtMartials"; }
         }
         
         string IMigrationMetadata.Source

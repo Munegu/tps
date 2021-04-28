@@ -11,6 +11,6 @@ namespace TP1_Module6.BO
         public string Nom { get; set; }
         public virtual Arme Arme { get; set; }
 
-        public virtual List<ArtMartial> ArtMartiaux { get; set; } = new List<ArtMartial>();
+        public virtual List<ArtMartial> ArtMartials { get; set; } = new List<ArtMartial>();
     }
 }
