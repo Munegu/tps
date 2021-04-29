@@ -112,12 +112,11 @@ namespace TP1_Module6.Controllers
         {
             Arme arme = db.Armes.Find(id);
 
-            db.Samourais.Include(x => x.Arme).Where(x => x.Arme.Id == arme.Id)
-                .ToList().ForEach((x) =>
-                {
-                    x.Arme = null;
-                }
-                );
+           if (db.Samourais.Include(x => x.Arme).Any(x => x.Arme.Id == arme.Id))
+            {
+                ModelState.AddModelError("errors", "L'arme doit être détaché du samourai la possédant");
+                return View(arme);
+            }
 
             db.Armes.Remove(arme);
             db.SaveChanges();
